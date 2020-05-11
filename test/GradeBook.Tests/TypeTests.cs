@@ -13,7 +13,7 @@ namespace GradeBook.Tests
         [Fact]
         public void WriteLogDelegateCanPointToMethod()
         {
-            WriteLogDelegate log = ReturnMessage;
+            var log = new WriteLogDelegate(ReturnMessage);
             log += ReturnMessage;
             log += IncrementCount;
 

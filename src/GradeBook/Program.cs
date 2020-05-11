@@ -9,6 +9,8 @@ namespace GradeBook
         {
             IBook book = new DiskBook("Scott's Grade Book");
             book.GradeAdded += OnGradeAdded;
+            book.GradeAdded -= OnGradeAdded;
+            book.GradeAdded += OnGradeAdded;
 
             EnterGrades(book);
 

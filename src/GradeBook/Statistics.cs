@@ -4,13 +4,7 @@ namespace GradeBook
 {
     public class Statistics
     {
-        public double Average
-        {
-            get
-            {
-                return Sum / Count;
-            }
-        }
+        public double Average => Sum / Count;
         public double High;
         public double Low;
 
@@ -18,23 +12,14 @@ namespace GradeBook
         {
             get
             {
-                switch (Average)
+                return Average switch
                 {
-                    case var d when d >= 90.0:
-                        return 'A';
-
-                    case var d when d >= 80.0:
-                        return 'B';
-
-                    case var d when d >= 70.0:
-                        return 'C';
-
-                    case var d when d >= 60.0:
-                        return 'D';
-
-                    default:
-                        return 'F';
-                }
+                    var d when d >= 90.0 => 'A',
+                    var d when d >= 80.0 => 'B',
+                    var d when d >= 70.0 => 'C',
+                    var d when d >= 60.0 => 'D',
+                    _ => 'F'
+                };
             }
         }
 
